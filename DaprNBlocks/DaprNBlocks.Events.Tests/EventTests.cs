@@ -18,7 +18,7 @@ namespace DaprNBlocks.Events.Tests
 
         public EventTests()
         {
-            ServiceCollection services = new ServiceCollection();
+            ServiceCollection services = new ();
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddEvents(pubsub: "mybus");
@@ -35,8 +35,12 @@ namespace DaprNBlocks.Events.Tests
             Check.That(eventHandler).IsNotNull();
 
             var myEvent = new TestEvent();
+
+            Check.That(myEvent.Id).IsInstanceOf<Guid>();
+            Check.That(myEvent.Name).Contains("fun");
+            Check.That(myEvent.CreatedDate).IsInstanceOf<DateTime>();
+
             eventHandler.Publish(myEvent);
-            
         }
     }
 }
