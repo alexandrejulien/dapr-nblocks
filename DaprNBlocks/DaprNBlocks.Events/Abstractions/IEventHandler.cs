@@ -7,7 +7,7 @@ namespace DaprNBlocks.Events.Abstractions
     /// </summary>
     public interface IEventHandler
     {
-        void Publish<T>(IEvent<T> busEvent);
-        Task PublishAsync<T>(IEvent<T> busEvent);
+        void Publish<T>(Event<T> busEvent);
+        Task PublishAsync<T>(Event<T> busEvent);
     }
 }

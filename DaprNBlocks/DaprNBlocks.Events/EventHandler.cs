@@ -39,17 +39,18 @@ namespace DaprNBlocks.Events
             EventBus = eventbus;
         }
 
-        public Task PublishAsync<T>(IEvent<T> busEvent)
+        public Task PublishAsync<T>(Event<T> busEvent)
         {
             var client = BuildingBlocks.DaprClient;
 
-            return client.PublishEventAsync<T>(
+            return client.PublishEventAsync<Event<T>>(
                     EventBus.PubSubName,
                     busEvent.Name,
-                    busEvent.Message);
+                    busEvent,
+                    CancellationToken.None);
         }
 
-        public void Publish<T>(IEvent<T> busEvent)
+        public void Publish<T>(Event<T> busEvent)
             => PublishAsync(busEvent).Wait();
     }
 }

@@ -1,5 +1,7 @@
 ﻿using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Core.Extensions;
+using DaprNBlocks.Events.Abstractions;
+using DaprNBlocks.Events.Tests.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
@@ -16,14 +18,22 @@ namespace DaprNBlocks.Events.Tests
             ServiceCollection services = new ServiceCollection();
 
             services.AddBuildingBlocks();
-
+            services.AddTransient<IEventHandler, EventHandler>();
+            services.AddSingleton<IEventBus>(new EventBus("mybus"));
             _serviceProvider = services.BuildServiceProvider();
         }
 
         [TestMethod]
         public void GivenBuildingBlocksThenPublishEvent()
         {
-            Check.That(_serviceProvider.GetRequiredService<IBuildingBlocks>()).IsNotNull();
+            var buildingBlocks = _serviceProvider.GetRequiredService<IBuildingBlocks>();
+            var eventHandler = _serviceProvider.GetRequiredService<IEventHandler>();
+            Check.That(buildingBlocks).IsNotNull();
+            Check.That(eventHandler).IsNotNull();
+
+            var myEvent = new TestEvent();
+            eventHandler.Publish(myEvent);
+            
         }
     }
 }
