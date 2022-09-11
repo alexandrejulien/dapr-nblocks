@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web", "DaprNBlo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events", "DaprNBlocks.Events\DaprNBlocks.Events.csproj", "{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events.Tests", "DaprNBlocks.Events.Tests\DaprNBlocks.Events.Tests.csproj", "{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

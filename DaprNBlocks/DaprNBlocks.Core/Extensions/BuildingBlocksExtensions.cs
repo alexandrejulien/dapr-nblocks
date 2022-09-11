@@ -12,15 +12,15 @@ namespace DaprNBlocks.Core.Extensions
     public static class BuildingBlocksExtensions
     {
         /// <summary>
-        /// Adds the yarp reverse proxy.
+        /// Adds the building blocks.
         /// </summary>
         /// <param name="services">The services.</param>
         /// <returns></returns>
-        public static IServiceCollection AddYarpReverseProxy(
+        public static IServiceCollection AddBuildingBlocks(
             this IServiceCollection services)
         {
             var client = new DaprClientBuilder().Build();
-
+            services.AddSingleton<IBuildingBlocks, BuildingBlocks>();
             services.AddSingleton<DaprClient>(client);
             return services;
         }
