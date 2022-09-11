@@ -12,7 +12,7 @@ namespace DaprNBlocks.Web.Extensions
         /// </summary>
         /// <param name="services">The services.</param>
         /// <returns></returns>
-        public static IServiceCollection AddBuildingBlocks(
+        public static IServiceCollection AddBuildingBlocksAspNet(
             this IServiceCollection services)
         {
             services.AddDaprClient();
