@@ -19,9 +19,7 @@ namespace DaprNBlocks.Core.Extensions
         public static IServiceCollection AddBuildingBlocks(
             this IServiceCollection services)
         {
-            var client = new DaprClientBuilder().Build();
             services.AddSingleton<IBuildingBlocks, BuildingBlocks>();
-            services.AddSingleton<DaprClient>(client);
             return services;
         }
     }

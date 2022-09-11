@@ -13,8 +13,8 @@ namespace DaprNBlocks.Events
         public Event()
         {
             Id = Guid.NewGuid();
-            DateTime createdDate = DateTime.Now;
             Name = typeof(T).Name;
+            CreatedDate = DateTime.Now;
         }
     }
 }

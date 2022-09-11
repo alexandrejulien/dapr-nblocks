@@ -1,10 +1,12 @@
-﻿using DaprNBlocks.Core.Abstractions;
+﻿using Dapr.Client;
+using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Core.Extensions;
 using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Extensions;
 using DaprNBlocks.Events.Tests.Events;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using NFluent;
 
 namespace DaprNBlocks.Events.Tests
@@ -17,7 +19,7 @@ namespace DaprNBlocks.Events.Tests
         public EventTests()
         {
             ServiceCollection services = new ServiceCollection();
-
+            services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddEvents(pubsub: "mybus");
 
@@ -33,7 +35,7 @@ namespace DaprNBlocks.Events.Tests
             Check.That(eventHandler).IsNotNull();
 
             var myEvent = new TestEvent();
-            Check.ThatCode(() => eventHandler.Publish(myEvent)).ThrowsAny();
+            eventHandler.Publish(myEvent);
             
         }
     }

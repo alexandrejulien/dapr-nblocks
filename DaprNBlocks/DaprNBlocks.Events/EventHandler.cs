@@ -42,6 +42,7 @@ namespace DaprNBlocks.Events
         public Task PublishAsync<T>(Event<T> busEvent)
         {
             var client = BuildingBlocks.DaprClient;
+            busEvent.PublishedDate = DateTime.Now;
 
             return client.PublishEventAsync<Event<T>>(
                     EventBus.PubSubName,
