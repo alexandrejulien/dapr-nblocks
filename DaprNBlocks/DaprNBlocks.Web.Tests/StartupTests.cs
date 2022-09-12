@@ -17,7 +17,7 @@ namespace DaprNBlocks.Web.Tests
         public StartupTests()
         {
             ServiceCollection services = new();
-            services.AddDaprClient();
+            services.AddDaprNBlocks();
             services.AddBuildingBlocks();
 
             _serviceProvider = services.BuildServiceProvider();
