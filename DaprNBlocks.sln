@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Core", "DaprNBlocks.Core\DaprNBlocks.Core.csproj", "{47B83056-6D52-4F1F-B396-E1EC52108219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Core", "src\DaprNBlocks.Core\DaprNBlocks.Core.csproj", "{47B83056-6D52-4F1F-B396-E1EC52108219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web", "DaprNBlocks.Web\DaprNBlocks.Web.csproj", "{DDDD84B9-177B-44DB-A45A-168BF2B2132C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web", "src\DaprNBlocks.Web\DaprNBlocks.Web.csproj", "{DDDD84B9-177B-44DB-A45A-168BF2B2132C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events", "DaprNBlocks.Events\DaprNBlocks.Events.csproj", "{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events", "src\DaprNBlocks.Events\DaprNBlocks.Events.csproj", "{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events.Tests", "DaprNBlocks.Events.Tests\DaprNBlocks.Events.Tests.csproj", "{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events.Tests", "tests\DaprNBlocks.Events.Tests\DaprNBlocks.Events.Tests.csproj", "{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Core.Tests", "DaprNBlocks.Core.Tests\DaprNBlocks.Core.Tests.csproj", "{19483CD8-CB65-42E6-AD6B-0F961D0A0659}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Core.Tests", "tests\DaprNBlocks.Core.Tests\DaprNBlocks.Core.Tests.csproj", "{19483CD8-CB65-42E6-AD6B-0F961D0A0659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web.Tests", "DaprNBlocks.Web.Tests\DaprNBlocks.Web.Tests.csproj", "{23280D0A-6A17-4FBC-8B35-2BF92D527621}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web.Tests", "tests\DaprNBlocks.Web.Tests\DaprNBlocks.Web.Tests.csproj", "{23280D0A-6A17-4FBC-8B35-2BF92D527621}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
