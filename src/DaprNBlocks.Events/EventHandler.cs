@@ -39,6 +39,12 @@ namespace DaprNBlocks.Events
             EventBus = eventbus;
         }
 
+        /// <summary>
+        /// Publishes the asynchronous event.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="busEvent">The bus event.</param>
+        /// <returns>Task.</returns>
         public Task PublishAsync<T>(Event<T> busEvent)
         {
             var client = BuildingBlocks.DaprClient;
@@ -51,6 +57,11 @@ namespace DaprNBlocks.Events
                     CancellationToken.None);
         }
 
+        /// <summary>
+        /// Publishes the specified bus event.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="busEvent">The bus event.</param>
         public void Publish<T>(Event<T> busEvent)
             => PublishAsync(busEvent).Wait();
     }

@@ -11,6 +11,9 @@ using DaprNBlocks.Events.Abstractions;
 
 namespace DaprNBlocks.Events.Extensions
 {
+    /// <summary>
+    /// Extensions for DI.
+    /// </summary>
     public static class BuildingBlockEvents
     {
         /// <summary>
