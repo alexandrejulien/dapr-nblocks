@@ -25,8 +25,8 @@ namespace DaprNBlocks.Events.Extensions
             this IServiceCollection services,
             string pubsub)
         {
-            services.AddTransient<IEventHandler, EventHandler>();
             services.AddSingleton<IEventBus>(new EventBus(pubsub));
+            services.AddTransient<IEventHub, EventHub>();
             return services;
         }
     }

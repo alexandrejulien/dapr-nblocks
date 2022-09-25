@@ -1,5 +1,6 @@
 ﻿using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Events.Abstractions;
+using MediatR;
 
 namespace DaprNBlocks.Events
 {
@@ -8,7 +9,7 @@ namespace DaprNBlocks.Events
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="DaprNBlocks.Events.Abstractions.IEvent" />
-    public class Event<T> : IEvent
+    public class Event : IEvent, IRequest<EventStatus>
     {
         /// <summary>
         /// Gets the identifier.
@@ -45,7 +46,7 @@ namespace DaprNBlocks.Events
         public Event()
         {
             Id = Guid.NewGuid();
-            Name = typeof(T).Name;
+            Name = this.GetType().Name;
             CreatedDate = DateTime.Now;
         }
     }

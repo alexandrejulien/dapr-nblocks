@@ -4,7 +4,9 @@ using DaprNBlocks.Core.Extensions;
 using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Extensions;
 using DaprNBlocks.Events.Tests.Events;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NFluent;
@@ -14,15 +16,21 @@ namespace DaprNBlocks.Events.Tests
     [TestClass]
     public class EventTests
     {
+
         private readonly IServiceProvider _serviceProvider;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EventTests"/> class.
+        /// </summary>
         public EventTests()
         {
             ServiceCollection services = new ();
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddEvents(pubsub: "mybus");
-
+            services.AddSingleton<IMediator, Mediator>();
+            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMediatR(typeof(TestEvent).Assembly, typeof(EventStatus).Assembly);
             _serviceProvider = services.BuildServiceProvider();
         }
 
@@ -30,7 +38,7 @@ namespace DaprNBlocks.Events.Tests
         public void GivenBuildingBlocksThenPublishEvent()
         {
             var buildingBlocks = _serviceProvider.GetRequiredService<IBuildingBlocks>();
-            var eventHandler = _serviceProvider.GetRequiredService<IEventHandler>();
+            var eventHandler = _serviceProvider.GetRequiredService<IEventHub>();
             Check.That(buildingBlocks).IsNotNull();
             Check.That(eventHandler).IsNotNull();
 
@@ -42,5 +50,15 @@ namespace DaprNBlocks.Events.Tests
 
             eventHandler.Publish(myEvent);
         }
+
+        [TestMethod]
+        public void GivenEventWhenPublishingThenHandleEvent()
+        {
+            var handler = _serviceProvider.GetRequiredService<IEventHub>();
+            var mock = new TestEvent() { Name = "Test", Value = 42.42 };
+
+            handler.Handle<TestEvent>(mock).Wait();
+        }
+
     }
 }
