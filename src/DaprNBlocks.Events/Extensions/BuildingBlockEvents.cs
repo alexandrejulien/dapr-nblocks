@@ -1,6 +1,10 @@
-﻿using DaprNBlocks.Events.Abstractions;
+﻿using DaprNBlocks.Core;
+using DaprNBlocks.Core.Abstractions;
+using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Configuration;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace DaprNBlocks.Events.Extensions
 {
@@ -18,8 +22,10 @@ namespace DaprNBlocks.Events.Extensions
             this IServiceCollection services,
             string pubsub)
         {
-            services.AddSingleton<IEventBus>(new EventBus(pubsub));
+            services.AddMediatR(typeof(Mediator));
+            services.TryAddSingleton<IBuildingBlocks, BuildingBlocks>();
             services.AddTransient<IEventHub, EventHub>();
+            services.AddSingleton<IEventBus>(new EventBus(pubsub));
             return services;
         }
     }
