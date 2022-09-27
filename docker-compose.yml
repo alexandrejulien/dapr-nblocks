@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+
+  pet.api:
+    image: ${DOCKER_REGISTRY-}pet
+    build:
+      context: .
+      dockerfile: samples/DaprNBlocks.Samples.Pet.Api/Dockerfile
