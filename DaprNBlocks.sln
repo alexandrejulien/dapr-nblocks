@@ -5,15 +5,19 @@ VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Core", "src\DaprNBlocks.Core\DaprNBlocks.Core.csproj", "{47B83056-6D52-4F1F-B396-E1EC52108219}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web", "src\DaprNBlocks.Web\DaprNBlocks.Web.csproj", "{DDDD84B9-177B-44DB-A45A-168BF2B2132C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Web", "src\DaprNBlocks.Web\DaprNBlocks.Web.csproj", "{DDDD84B9-177B-44DB-A45A-168BF2B2132C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events", "src\DaprNBlocks.Events\DaprNBlocks.Events.csproj", "{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Events", "src\DaprNBlocks.Events\DaprNBlocks.Events.csproj", "{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Events.Tests", "tests\DaprNBlocks.Events.Tests\DaprNBlocks.Events.Tests.csproj", "{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Events.Tests", "tests\DaprNBlocks.Events.Tests\DaprNBlocks.Events.Tests.csproj", "{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Core.Tests", "tests\DaprNBlocks.Core.Tests\DaprNBlocks.Core.Tests.csproj", "{19483CD8-CB65-42E6-AD6B-0F961D0A0659}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Core.Tests", "tests\DaprNBlocks.Core.Tests\DaprNBlocks.Core.Tests.csproj", "{19483CD8-CB65-42E6-AD6B-0F961D0A0659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.Web.Tests", "tests\DaprNBlocks.Web.Tests\DaprNBlocks.Web.Tests.csproj", "{23280D0A-6A17-4FBC-8B35-2BF92D527621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaprNBlocks.Web.Tests", "tests\DaprNBlocks.Web.Tests\DaprNBlocks.Web.Tests.csproj", "{23280D0A-6A17-4FBC-8B35-2BF92D527621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Sources", "1. Sources", "{D8E5CBAC-9DE6-4917-A53B-0CE13BD33938}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Tests", "2. Tests", "{DD3AE5BD-05DF-4941-87D4-193CDA41E587}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +52,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47B83056-6D52-4F1F-B396-E1EC52108219} = {D8E5CBAC-9DE6-4917-A53B-0CE13BD33938}
+		{DDDD84B9-177B-44DB-A45A-168BF2B2132C} = {D8E5CBAC-9DE6-4917-A53B-0CE13BD33938}
+		{FA541A13-7DA5-4F0C-9A7C-B6860A1F13D6} = {D8E5CBAC-9DE6-4917-A53B-0CE13BD33938}
+		{58F10D2C-CDB5-4E52-A33D-AB0237B7E48A} = {DD3AE5BD-05DF-4941-87D4-193CDA41E587}
+		{19483CD8-CB65-42E6-AD6B-0F961D0A0659} = {DD3AE5BD-05DF-4941-87D4-193CDA41E587}
+		{23280D0A-6A17-4FBC-8B35-2BF92D527621} = {DD3AE5BD-05DF-4941-87D4-193CDA41E587}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0867C948-78FD-4457-A707-1436AEC9D1BA}
