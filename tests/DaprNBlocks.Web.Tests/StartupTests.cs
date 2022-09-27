@@ -1,10 +1,8 @@
-﻿using Dapr.Client;
-using DaprNBlocks.Core.Abstractions;
+﻿using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Core.Extensions;
 using DaprNBlocks.Web.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using NFluent;
 
 namespace DaprNBlocks.Web.Tests

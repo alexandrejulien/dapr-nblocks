@@ -1,14 +1,6 @@
-﻿using Dapr.Client;
-using DaprNBlocks.Core.Abstractions;
-using DaprNBlocks.Core;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DaprNBlocks.Events.Abstractions;
+﻿using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DaprNBlocks.Events.Extensions
 {

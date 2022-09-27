@@ -1,14 +1,7 @@
-﻿using DaprNBlocks.Core.Abstractions;
-using DaprNBlocks.Events.Abstractions;
+﻿using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Handler;
 using DaprNBlocks.Events.Models;
 using DaprNBlocks.Events.Tests.Events;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaprNBlocks.Events.Tests.Handlers
 {

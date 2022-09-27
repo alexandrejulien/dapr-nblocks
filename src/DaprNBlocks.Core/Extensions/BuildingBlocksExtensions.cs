@@ -1,8 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Dapr.Client;
-using static Dapr.Client.Autogen.Grpc.v1.Dapr;
-using DaprNBlocks.Core.Abstractions;
-using DaprClient = Dapr.Client.DaprClient;
+﻿using DaprNBlocks.Core.Abstractions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DaprNBlocks.Core.Extensions
 {

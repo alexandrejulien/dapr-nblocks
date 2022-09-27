@@ -1,5 +1,4 @@
-﻿using DaprNBlocks.Core.Abstractions;
-using DaprNBlocks.Events.Abstractions;
+﻿using DaprNBlocks.Events.Abstractions;
 using MediatR;
 
 namespace DaprNBlocks.Events.Models
@@ -18,6 +17,7 @@ namespace DaprNBlocks.Events.Models
         /// The identifier.
         /// </value>
         public Guid Id { get; }
+
         /// <summary>
         /// Gets the name.
         /// </summary>
@@ -25,6 +25,7 @@ namespace DaprNBlocks.Events.Models
         /// The name.
         /// </value>
         public string Name { get; }
+
         /// <summary>
         /// Gets the created date.
         /// </summary>
@@ -32,6 +33,7 @@ namespace DaprNBlocks.Events.Models
         /// The created date.
         /// </value>
         public DateTime CreatedDate { get; }
+
         /// <summary>
         /// Gets or sets the published date.
         /// </summary>

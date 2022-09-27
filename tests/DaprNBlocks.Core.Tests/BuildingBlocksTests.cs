@@ -15,7 +15,7 @@ namespace DaprNBlocks.Core.Tests
 
         public BuildingBlocksTests()
         {
-            ServiceCollection services = new ();
+            ServiceCollection services = new();
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
 
@@ -32,7 +32,7 @@ namespace DaprNBlocks.Core.Tests
         [TestMethod]
         public void GivenServicesWhenDisposeThenThrowExceptions()
         {
-            var client = (BuildingBlocks) _serviceProvider.GetService<IBuildingBlocks>();
+            var client = (BuildingBlocks)_serviceProvider.GetService<IBuildingBlocks>();
             client.Dispose();
         }
     }

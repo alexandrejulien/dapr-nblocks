@@ -1,6 +1,4 @@
-﻿using DaprNBlocks.Core.Abstractions;
-using DaprNBlocks.Events.Models;
-using static Google.Rpc.Context.AttributeContext.Types;
+﻿using DaprNBlocks.Events.Models;
 
 namespace DaprNBlocks.Events.Abstractions
 {
@@ -10,8 +8,11 @@ namespace DaprNBlocks.Events.Abstractions
     public interface IEventHub
     {
         void Publish(Event busEvent);
+
         Task PublishAsync(Event busEvent);
+
         Task Handle<TEvent>(TEvent busEvent) where TEvent : Event;
+
         //Task NotifyStatus<TEvent>(Guid id, EventStatus status) where TEvent : Event;
     }
 }

@@ -7,7 +7,6 @@ using DaprNBlocks.Events.Models;
 using DaprNBlocks.Events.Tests.Events;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NFluent;
@@ -17,7 +16,6 @@ namespace DaprNBlocks.Events.Tests
     [TestClass]
     public class EventTests
     {
-
         private readonly IServiceProvider _serviceProvider;
 
         /// <summary>
@@ -25,7 +23,7 @@ namespace DaprNBlocks.Events.Tests
         /// </summary>
         public EventTests()
         {
-            ServiceCollection services = new ();
+            ServiceCollection services = new();
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddEvents(pubsub: "mybus");
@@ -56,10 +54,9 @@ namespace DaprNBlocks.Events.Tests
             var handler = _serviceProvider.GetRequiredService<IEventHub>();
             var mock = new TestEvent() { Name = "Test", Value = 42.42 };
 
-            Check.ThatCode(() => 
+            Check.ThatCode(() =>
                  handler.Handle<TestEvent>(mock).Wait())
                 .DoesNotThrow();
         }
-
     }
 }

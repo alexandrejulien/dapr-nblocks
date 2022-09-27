@@ -2,12 +2,6 @@
 using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaprNBlocks.Events
 {
@@ -93,7 +87,6 @@ namespace DaprNBlocks.Events
         /// <returns></returns>
         public Task Handle<TEvent>(TEvent busEvent) where TEvent : Event
             => mediator.Send(busEvent);
-        
 
         /// <summary>
         /// Publishes the specified bus event.

@@ -1,11 +1,5 @@
-﻿using DaprNBlocks.Events.Abstractions;
-using DaprNBlocks.Events.Models;
+﻿using DaprNBlocks.Events.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DaprNBlocks.Events.Tests.Events
 {
