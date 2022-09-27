@@ -3,6 +3,7 @@ using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Core.Extensions;
 using DaprNBlocks.Events.Abstractions;
 using DaprNBlocks.Events.Extensions;
+using DaprNBlocks.Events.Models;
 using DaprNBlocks.Events.Tests.Events;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,9 +29,7 @@ namespace DaprNBlocks.Events.Tests
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddEvents(pubsub: "mybus");
-            services.AddSingleton<IMediator, Mediator>();
-            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddMediatR(typeof(TestEvent).Assembly, typeof(EventStatus).Assembly);
+            services.AddMediatR(typeof(TestEvent), typeof(EventStatus));
             _serviceProvider = services.BuildServiceProvider();
         }
 
@@ -57,7 +56,9 @@ namespace DaprNBlocks.Events.Tests
             var handler = _serviceProvider.GetRequiredService<IEventHub>();
             var mock = new TestEvent() { Name = "Test", Value = 42.42 };
 
-            handler.Handle<TestEvent>(mock).Wait();
+            Check.ThatCode(() => 
+                 handler.Handle<TestEvent>(mock).Wait())
+                .DoesNotThrow();
         }
 
     }

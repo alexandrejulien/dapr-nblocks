@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DaprNBlocks.Events
+namespace DaprNBlocks.Events.Configuration
 {
     /// <summary>
     /// Event Bus.
     /// </summary>
-    /// <seealso cref="DaprNBlocks.Events.Abstractions.IEventBus" />
+    /// <seealso cref="IEventBus" />
     public class EventBus
         : IEventBus
     {

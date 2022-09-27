@@ -1,5 +1,7 @@
 ﻿using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Events.Abstractions;
+using DaprNBlocks.Events.Handler;
+using DaprNBlocks.Events.Models;
 using DaprNBlocks.Events.Tests.Events;
 using MediatR;
 using System;
@@ -10,17 +12,17 @@ using System.Threading.Tasks;
 
 namespace DaprNBlocks.Events.Tests.Handlers
 {
-    public class TestEventHandler : EventRequestHandler<TestEvent>
+    public class TestEventHandler : EventCommand<TestEvent>
     {
-        public TestEventHandler(EventHub handler) : base(handler)
+        public TestEventHandler(IEventHub handler) : base(handler)
         {
         }
 
-        public override EventStatus Run(TestEvent request, CancellationToken cancellationToken)
+        public override Task<EventStatus> Run(TestEvent request, CancellationToken cancellationToken)
         {
             Console.WriteLine("Here is make my event action");
 
-            return EventStatus.Completed;
+            return Task.FromResult(EventStatus.Completed);
         }
     }
 }

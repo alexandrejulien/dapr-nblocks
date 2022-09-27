@@ -1,4 +1,5 @@
 ﻿using DaprNBlocks.Events.Abstractions;
+using DaprNBlocks.Events.Models;
 using Grpc.Core;
 using MediatR;
 using System;
@@ -7,27 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DaprNBlocks.Events
+namespace DaprNBlocks.Events.Handler
 {
     /// <summary>
     /// Event Request Handler.
     /// </summary>
     /// <typeparam name="TEvent">The type of the event.</typeparam>
-    /// <seealso cref="MediatR.IRequestHandler&lt;TEvent, DaprNBlocks.Events.EventStatus&gt;" />
-    public abstract class EventRequestHandler<TEvent> 
+    /// <seealso cref="IRequestHandler&lt;TEvent, EventStatus&gt;" />
+    public abstract class EventCommand<TEvent>
         : IRequestHandler<TEvent, EventStatus>
         where TEvent : Event
     {
         /// <summary>
         /// The hub
         /// </summary>
-        private readonly EventHub hub;
+        private readonly IEventHub hub;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="EventRequestHandler{TEvent}"/> class.
+        /// Initializes a new instance of the <see cref="EventCommand{TEvent}"/> class.
         /// </summary>
         /// <param name="hub">The hub.</param>
-        protected EventRequestHandler(EventHub hub)
+        protected EventCommand(IEventHub hub)
         {
             this.hub = hub;
         }
@@ -40,9 +41,8 @@ namespace DaprNBlocks.Events
         /// <returns></returns>
         public Task<EventStatus> Handle(TEvent request, CancellationToken cancellationToken)
         {
-            var status = Run(request, cancellationToken);
-            var notif = hub.NotifyStatus<TEvent>(request.Id, status);
-            return (Task<EventStatus>)notif;
+            //var notif = hub.NotifyStatus<TEvent>(request.Id, status);
+            return Run(request, cancellationToken);
         }
 
         /// <summary>
@@ -51,6 +51,6 @@ namespace DaprNBlocks.Events
         /// <param name="requestEvent">The request event.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns></returns>
-        public abstract EventStatus Run(TEvent requestEvent, CancellationToken cancellationToken);
+        public abstract Task<EventStatus> Run(TEvent requestEvent, CancellationToken cancellationToken);
     }
 }

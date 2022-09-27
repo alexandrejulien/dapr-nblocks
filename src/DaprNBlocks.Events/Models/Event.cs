@@ -2,13 +2,13 @@
 using DaprNBlocks.Events.Abstractions;
 using MediatR;
 
-namespace DaprNBlocks.Events
+namespace DaprNBlocks.Events.Models
 {
     /// <summary>
     /// Event base structure.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <seealso cref="DaprNBlocks.Events.Abstractions.IEvent" />
+    /// <seealso cref="IEvent" />
     public class Event : IEvent, IRequest<EventStatus>
     {
         /// <summary>
@@ -46,7 +46,7 @@ namespace DaprNBlocks.Events
         public Event()
         {
             Id = Guid.NewGuid();
-            Name = this.GetType().Name;
+            Name = GetType().Name;
             CreatedDate = DateTime.Now;
         }
     }

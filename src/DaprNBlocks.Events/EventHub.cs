@@ -1,5 +1,6 @@
 ﻿using DaprNBlocks.Core.Abstractions;
 using DaprNBlocks.Events.Abstractions;
+using DaprNBlocks.Events.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -71,17 +72,18 @@ namespace DaprNBlocks.Events
         /// <param name="id">The identifier.</param>
         /// <param name="status">The status.</param>
         /// <returns></returns>
-        public Task NotifyStatus<T>(Guid id, EventStatus status)
-        {
-            var client = buildingBlocks.DaprClient;
-            var notif = new EventNotification<T>(id, status);
+        //public Task NotifyStatus<TEvent>(Guid id, EventStatus status)
+        //    where TEvent : Event
+        //{
+        //    var client = buildingBlocks.DaprClient;
+        //    var notif = new EventNotification<TEvent>(id, status);
 
-            return client.PublishEventAsync<EventNotification<T>>(
-                    eventBus.PubSubName,
-                    notif.Name,
-                    notif,
-                    CancellationToken.None);
-        }
+        //    return client.PublishEventAsync<EventNotification<TEvent>>(
+        //            eventBus.PubSubName,
+        //            notif.Name,
+        //            notif,
+        //            CancellationToken.None);
+        //}
 
         /// <summary>
         /// Handles the specified bus event.

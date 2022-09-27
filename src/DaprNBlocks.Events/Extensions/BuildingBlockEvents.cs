@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DaprNBlocks.Events.Abstractions;
+using DaprNBlocks.Events.Configuration;
 
 namespace DaprNBlocks.Events.Extensions
 {

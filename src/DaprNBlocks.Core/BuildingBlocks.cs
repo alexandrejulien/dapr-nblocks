@@ -28,7 +28,7 @@ namespace DaprNBlocks.Core
         /// <summary>
         /// The service provider.
         /// </summary>
-        private readonly IServiceProvider serviceProvider;
+        private readonly IServiceProvider provider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BuildingBlocks"/> class.
@@ -36,8 +36,8 @@ namespace DaprNBlocks.Core
         /// <param name="provider">The provider.</param>
         public BuildingBlocks(IServiceProvider provider)
         {
-            serviceProvider = provider;
-            DaprClient = serviceProvider.GetRequiredService<DaprClient>();
+            this.provider = provider;
+            DaprClient = provider.GetRequiredService<DaprClient>();
         }
 
         /// <summary>
