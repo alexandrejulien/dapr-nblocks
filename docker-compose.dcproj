@@ -6,7 +6,7 @@
     <ProjectGuid>e982a3a4-b514-4157-ab6f-c510e6c6fc74</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
-    <DockerServiceName>pet.api</DockerServiceName>
+    <DockerServiceName>gateway</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

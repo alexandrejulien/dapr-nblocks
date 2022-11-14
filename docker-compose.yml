@@ -1,8 +1,13 @@
 version: '3.4'
 
 services:
-
-  pet.api:
+  gateway:
+    container_name: reverseproxy
+    image: alexandrejulien/peppermint-reverseproxy:latest
+    ports:
+      - "80:80"
+  pet:
+    container_name: pet
     image: ${DOCKER_REGISTRY-}pet
     build:
       context: .
