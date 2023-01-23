@@ -22,11 +22,11 @@ jobs:
     - name: Build Portable
       run: dotnet build --no-restore --configuration Release
     - name: Publish Portable
-      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj  -o app/Portable
+      run: dotnet pack -o libs
    
     - name: Upload a Build Artifact Portable
       uses: actions/upload-artifact@v3.1.0
       with:
         name: Peppermint.ReverseProxy-portable-dotnet
-        path: app/Portable
+        path: libs
 
