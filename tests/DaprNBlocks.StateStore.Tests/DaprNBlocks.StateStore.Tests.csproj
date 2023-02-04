@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DaprNBlocks.StateStore\DaprNBlocks.StateStore.csproj" />
+    <ProjectReference Include="..\..\src\DaprNBlocks.StateStore\DaprNBlocks.StateStore.csproj" />
   </ItemGroup>
 
 </Project>

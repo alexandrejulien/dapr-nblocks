@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\DaprNBlocks.Core\DaprNBlocks.Core.csproj" />
+    <ProjectReference Include="..\DaprNBlocks.Core\DaprNBlocks.Core.csproj" />
   </ItemGroup>
 
 </Project>
