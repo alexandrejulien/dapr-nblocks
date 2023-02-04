@@ -1,6 +1,7 @@
 using Castle.Components.DictionaryAdapter.Xml;
 using Dapr.Client;
 using DaprNBlocks.Core.Extensions;
+using DaprNBlocks.Events.Extensions;
 using DaprNBlocks.StateStore.Tests.Models;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
@@ -28,7 +29,9 @@ namespace DaprNBlocks.StateStore.Tests
             ServiceCollection services = new();
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
+            services.AddStateStore();
             services.AddTransient<State<TestStateModel>>();
+            services.AddTransient<SharedState<TestStateModel>>();
 
             _serviceProvider = services.BuildServiceProvider();
         }
@@ -37,6 +40,18 @@ namespace DaprNBlocks.StateStore.Tests
         public void GivenWhenHavingToLoadStateThenGetState()
         {
             var currentState = _serviceProvider.GetService<State<TestStateModel>>();
+            var id = Guid.NewGuid();
+            var myObj = new TestStateModel() { Id = id, Name = "Test", Description = "Description" };
+
+            Check.ThatCode(() => currentState.Save(myObj)).DoesNotThrow();
+
+            Check.ThatCode(() => currentState.Get(id.ToString())).DoesNotThrow();
+        }
+
+        [TestMethod]
+        public void GivenWhenHavingSharedStateThenCheck()
+        {
+            var currentState = _serviceProvider.GetService<SharedState<TestStateModel>>();
             var id = Guid.NewGuid();
             var myObj = new TestStateModel() { Id = id, Name = "Test", Description = "Description" };
 

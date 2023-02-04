@@ -16,9 +16,8 @@ namespace DaprNBlocks.Events.Extensions
         /// </summary>
         /// <param name="services">The services.</param>
         /// <returns></returns>
-        public static IServiceCollection AddEvents(
-            this IServiceCollection services,
-            string pubsub)
+        public static IServiceCollection AddStateStore(
+            this IServiceCollection services)
         {
             services.AddMediatR(typeof(Mediator));
             services.TryAddSingleton<IBuildingBlocks, BuildingBlocks>();

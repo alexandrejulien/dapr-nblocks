@@ -10,20 +10,17 @@ using System.Threading.Tasks;
 namespace DaprNBlocks.StateStore
 {
     /// <summary>
-    /// State.
+    /// Shared State.
+    /// This state is shared between all distributed applications.
     /// </summary>
-    /// <typeparam name="TState">The type of the state.</typeparam>
-    /// <seealso cref="DaprNBlocks.StateStore.Base.StateBase&lt;TState&gt;" />
-    public class State<TState> : StateBase<TState>
+    public class SharedState<TState> : StateBase<TState>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="State{TState}"/> class.
+        /// Initializes a new instance of the <see cref="SharedState{TState}"/> class.
         /// </summary>
         /// <param name="buildingBlocks">The building blocks.</param>
-        public State(IBuildingBlocks buildingBlocks) 
-            : base (buildingBlocks, StateType.Default)
+        public SharedState(IBuildingBlocks buildingBlocks) : base(buildingBlocks, StateType.Shared)
         {
-
         }
     }
 }
