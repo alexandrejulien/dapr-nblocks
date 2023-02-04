@@ -21,9 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Tests", "2. Tests", "{DD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Samples", "3. Samples", "{4029CB2C-6640-4F92-83C1-C50A887423BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.StateStore", "DaprNBlocks.StateStore\DaprNBlocks.StateStore.csproj", "{F8BCB727-2650-4469-B0FC-CA95366876AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.StateStore", "src\DaprNBlocks.StateStore\DaprNBlocks.StateStore.csproj", "{F8BCB727-2650-4469-B0FC-CA95366876AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.StateStore.Tests", "DaprNBlocks.StateStore.Tests\DaprNBlocks.StateStore.Tests.csproj", "{024227B3-4986-4669-B55B-5D23B988EB41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaprNBlocks.StateStore.Tests", "tests\DaprNBlocks.StateStore.Tests\DaprNBlocks.StateStore.Tests.csproj", "{024227B3-4986-4669-B55B-5D23B988EB41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
