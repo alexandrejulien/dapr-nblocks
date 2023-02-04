@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DaprNBlocks.StateStore.Base
 {
-    internal abstract class StateBase<TState> : IState<TState>
+    public abstract class StateBase<TState> : IState<TState>
     {
         /// <summary>
         /// Gets the building blocks.
@@ -17,16 +17,36 @@ namespace DaprNBlocks.StateStore.Base
         /// <value>
         /// The building blocks.
         /// </value>
-        private readonly IBuildingBlocks buildingBlocks;
+        protected readonly IBuildingBlocks buildingBlocks;
 
         /// <summary>
         /// The state store name.
         /// </summary>
-        private readonly string stateStoreName;
+        protected readonly string stateStoreName;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StateBase{TState}"/> class.
+        /// </summary>
+        /// <param name="buildingBlocks">The building blocks.</param>
+        /// <param name="stateStoreName">Name of the state store.</param>
+        protected StateBase(IBuildingBlocks buildingBlocks, string stateStoreName)
+        {
+            this.buildingBlocks = buildingBlocks;
+            this.stateStoreName = stateStoreName;
+        }
+
+        /// <summary>
+        /// Gets the specified key.
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <returns></returns>
         public TState Get(string key) 
             => buildingBlocks.DaprClient.GetStateAsync<TState>(stateStoreName, key).Result;
 
+        /// <summary>
+        /// Saves the specified state.
+        /// </summary>
+        /// <param name="state">The state.</param>
         public void Save(TState state)
             => buildingBlocks.DaprClient.SaveStateAsync<TState>(
                 stateStoreName, UniqueIdentifier.New(), state)
