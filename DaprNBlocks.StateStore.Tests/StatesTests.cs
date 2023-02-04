@@ -30,8 +30,8 @@ namespace DaprNBlocks.StateStore.Tests
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddStateStore();
-            services.AddTransient<State<TestStateModel>>();
-            services.AddTransient<SharedState<TestStateModel>>();
+            services.RegisterState<TestStateModel>();
+            services.RegisterSharedSate<TestStateModel>();
 
             _serviceProvider = services.BuildServiceProvider();
         }
