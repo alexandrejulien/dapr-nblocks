@@ -27,7 +27,8 @@ namespace DaprNBlocks.Events.Tests
             services.AddSingleton<DaprClient>(Mock.Of<DaprClient>());
             services.AddBuildingBlocks();
             services.AddEvents(pubsub: "mybus");
-            services.AddMediatR(typeof(TestEvent), typeof(EventStatus));
+            services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining(typeof(TestEvent)));
+            services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining(typeof(EventStatus)));
             _serviceProvider = services.BuildServiceProvider();
         }
 

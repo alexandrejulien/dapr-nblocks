@@ -22,7 +22,6 @@ namespace DaprNBlocks.Events.Extensions
             this IServiceCollection services,
             string pubsub)
         {
-            services.AddMediatR(typeof(Mediator));
             services.TryAddSingleton<IBuildingBlocks, BuildingBlocks>();
             services.AddTransient<IEventHub, EventHub>();
             services.AddSingleton<IEventBus>(new EventBus(pubsub));
