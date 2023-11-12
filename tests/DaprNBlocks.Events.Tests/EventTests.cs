@@ -33,7 +33,7 @@ namespace DaprNBlocks.Events.Tests
         }
 
         [TestMethod]
-        public void GivenBuildingBlocksThenPublishEvent()
+        public void Given_BuildingBlocks_Then_PublishEvent()
         {
             var buildingBlocks = _serviceProvider.GetRequiredService<IBuildingBlocks>();
             var eventHandler = _serviceProvider.GetRequiredService<IEventHub>();
@@ -50,7 +50,7 @@ namespace DaprNBlocks.Events.Tests
         }
 
         [TestMethod]
-        public void GivenEventWhenPublishingThenHandleEvent()
+        public void Given_Event_When_Publishing_Then_HandleEvent()
         {
             var handler = _serviceProvider.GetRequiredService<IEventHub>();
             var mock = new TestEvent() { Name = "Test", Value = 42.42 };
