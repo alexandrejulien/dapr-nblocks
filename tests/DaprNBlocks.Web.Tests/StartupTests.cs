@@ -22,7 +22,7 @@ namespace DaprNBlocks.Web.Tests
         }
 
         [TestMethod]
-        public void GivenAddDaprClientWhenStartupThenGetBuildingBlocks()
+        public void Given_AddDaprClient_When_Startup_Then_GetBuildingBlocks()
         {
             var client = _serviceProvider.GetRequiredService<IBuildingBlocks>();
             Check.That(client.DaprClient).IsNotNull();
